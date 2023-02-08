@@ -1,0 +1,332 @@
+{
+    "tasks": 
+    [
+        {
+            "label": "delete_executable",
+            "type": "shell",
+            "command": "rm -r a.out",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "detail": "deletes the executable file",
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true,
+                "close": true
+            }
+        },
+        {
+            "label": "delete_executable and the dSYM",
+            "type": "shell",
+            "command": "rm -r a.out a.out.dSYM",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "detail": "deletes the executable file and the dSYM file",
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true,
+                "close": true
+            }
+        },
+        {
+            "label": "build g++ executable and dSYM",
+            "type": "cppbuild",
+            "promptOnClose": true,
+            "command": "g++",
+            "args": [
+                "--std=c++17",
+                "-stdlib=libc++",
+                "-fdiagnostics-color=always",
+                "-fcolor-diagnostics",
+                "-fansi-escape-codes",
+                "-gdwarf-2",
+                "-g",
+                "-o",
+                "a.out",
+                "${fileDirname}/${fileBasename}"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "options": {
+                "cwd": ".${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "create a executable with without printing",
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true,
+                "revealProblems": "never"
+            }
+        },
+        {
+            "label": "build all g++ executable and dSYM",
+            "type": "cppbuild",
+            "promptOnClose": true,
+            "command": "g++",
+            "args": [
+                "--std=c++17",
+                "-stdlib=libc++",
+                "-fdiagnostics-color=always",
+                "-fcolor-diagnostics",
+                "-fansi-escape-codes",
+                "-g",
+                "-o",
+                "a.out",
+                "${fileDirname}/*.cpp"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "options": {
+                "cwd": ".${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "create a executable with without printing",
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true,
+                "revealProblems": "never"
+            }
+        },
+        {
+            "label": "build clang++ executable and dSYM",
+            "type": "cppbuild",
+            "promptOnClose": true,
+            "command": "clang++",
+            "args": [
+                "--std=c++17",
+                "-stdlib=libc++",
+                "-fdiagnostics-color=always",
+                "-fcolor-diagnostics",
+                "-fansi-escape-codes",
+                "-gdwarf-2",
+                "-g",
+                "${file}",
+                "-o",
+                "a.out"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "create a executable",
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true,
+                "revealProblems": "never"
+            }
+        },
+        {
+            "label": "build clang++ all executable and dSYM",
+            "type": "cppbuild",
+            "promptOnClose": false,
+            "command": "clang++",
+            "args": [
+                "--std=c++17",
+                "-stdlib=libc++",
+                "-fdiagnostics-color=always",
+                "-fcolor-diagnostics",
+                "-fansi-escape-codes",
+                "-g",
+                "${fileDirname}/*.cpp",
+                "-o",
+                "a.out"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "options": {
+                "cwd": ".${fileDirname}"
+            },
+            "group": "build",
+            "detail": "create a executable",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true,
+                "revealProblems": "never"
+            }
+        },
+        {
+            "label": "build g++ executable",
+            "type": "cppbuild",
+            "promptOnClose": false,
+            "command": "g++",
+            "args": [
+                "-o",
+                "./a.out",
+                "./${fileBasename}"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "options": {
+                "cwd": ".${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "create a executable with without printing",
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true,
+                "revealProblems": "never"
+            }
+        },
+        {
+            "label": "Normal delete_executable and the dSYM",
+            "type": "shell",
+            "command": "rm -r ${fileDirname}/${fileBasenameNoExtension} ${fileDirname}/${fileBasenameNoExtension}.dSYM",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "detail": "deletes the executable file and the dSYM file",
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true,
+                "close": true
+            }
+        },
+        {
+            "label": "Open Terminal",
+            "type": "shell",
+            "command": "osascript -e 'tell application \"Terminal\"\ndo script \"echo hello\"\nend tell'",
+            "problemMatcher": []
+        },
+        {
+            "type": "cppbuild",
+            "label": "Normal",
+            "command": "/usr/bin/g++",
+            "args": [
+                "--std=c++17",
+                "-stdlib=libc++",
+                "-fdiagnostics-color=always",
+                "-fcolor-diagnostics",
+                "-fansi-escape-codes",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compiler: /usr/bin/g++",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new",
+                "showReuseMessage": false,
+                "clear": true,
+                "revealProblems": "never"
+            }
+        },
+        {
+            "type": "cppbuild",
+            "label": "Normal all",
+            "command": "g++",
+            "args": [
+                "--std=c++17",
+                "-stdlib=libc++",
+                "-fdiagnostics-color=always",
+                "-fcolor-diagnostics",
+                "-fansi-escape-codes",
+                "-g",
+                "${fileDirname}/*.cpp",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": ".${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compiler: /usr/bin/g++",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true,
+                "revealProblems": "never"
+            }
+        }
+    ],
+    "version": "2.0.0"
+    
+}

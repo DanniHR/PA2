@@ -1,0 +1,69 @@
+{
+
+    "configurations": 
+    [
+    {
+        "name": "Simple",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${fileDirname}/a.out",
+        "preLaunchTask": "build g++ executable and dSYM",
+        "postDebugTask": "delete_executable and the dSYM",
+        "cwd": "${fileDirname}",
+   
+    },
+    {
+        "name": "Simple all",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${fileDirname}/a.out",
+        "preLaunchTask": "build all g++ executable and dSYM",
+        "postDebugTask": "delete_executable and the dSYM",
+        "cwd": "${fileDirname}",
+   
+    },
+    {
+        "name": "Simple clang++",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${fileDirname}/a.out",
+        "preLaunchTask": "build clang++ executable and dSYM",
+        "postDebugTask": "delete_executable and the dSYM",
+        "cwd": "${fileDirname}",
+   
+    },
+    {
+        "name": "Simple all clang++",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${fileDirname}/a.out",
+        "preLaunchTask": "build clang++ all executable and dSYM",
+        "postDebugTask": "delete_executable and the dSYM",
+        "cwd": "${fileDirname}",
+   
+    },
+    
+
+        {
+            "name": "LAUNCH WITHOUT CREATING EXECUTABLE",
+            "type": "cppdbg",
+            "request": "launch",
+
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "cwd": "${fileDirname}",
+            
+            "MIMode": "lldb",
+            
+            "presentation": 
+            {
+                "hidden": true,
+                "group": "",
+                "order": 3
+            }
+            
+        }        
+    ],    
+    "version": "2.0.0"
+}
+
